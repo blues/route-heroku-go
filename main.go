@@ -72,7 +72,7 @@ func dbGetRouteFunc(db *sql.DB) gin.HandlerFunc {
 			return
 		}
 
-		rows, err := db.Query("SELECT routedata FROM routedata;")
+		rows, err := db.Query("SELECT routedata FROM routedata order by id desc;")
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading routedata: %q", err))
